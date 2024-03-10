@@ -1,1 +1,36 @@
+name: deploy node.js application on ecs
 
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu:latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{secrets.aws-region}}
+      
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
+      
+      - name: Build and tag iamge and push to amazon ECR
+        env:
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+          IMAGE_TAG: "V1"
+        
+        run: |
+          docker build -t $ECR_REPOSITORY/nodejsapp:$IMAGE_TAG .
+           docker push $ECR_REPOSITORY/nodejsapp:$IMAGE_TAG
