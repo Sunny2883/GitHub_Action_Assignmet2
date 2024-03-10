@@ -3,7 +3,7 @@ name: deploy node.js application on ecs
 on:
   push:
     branches:
-      - "main"
+      - "master"
   pull_request:
     branches: ["master"]
   workflow_dispatch:
