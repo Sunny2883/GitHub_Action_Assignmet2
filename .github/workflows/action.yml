@@ -33,7 +33,7 @@ jobs:
           
         
         run: |
-           docker build -t nodsjsapp .
+           docker build -t nodejsapp .
            docker tag nodejsapp $ECR_REGISTRY/nodejsapp:latest
 
            docker push $ECR_REGISTRY/nodejsapp:latest
