@@ -24,18 +24,20 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       
       - name: Login to Amazon ECR
+        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Output registry name and repository name
+        run: |
+          echo "Registry name: ${{ steps.login-ecr.outputs.registry }}"
+          echo "Repository name: ${{ secrets.REPOSITORY_NAME }}"
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          
           IMAGE_TAG: latest
-          ECR_REPOSITORY: ${{secrets.REPOSITORY_NAME}}
-          run: |
-            echo "$ECR_REGISTRY" 
-            echo ${{secrets.REPOSITORY_NAME}} 
+          ECR_REPOSITORY: ${{ secrets.REPOSITORY_NAME }}
         run: |
           # Build a docker container and
           # push it to ECR so that it can
