@@ -33,7 +33,7 @@ jobs:
           
         
         run: |
-           docker build -t $ECR_REPOSITORY .
-           docker tag $ECR_REPOSITORY $ECR_REGISTRY/$ECR_REPOSITORY:latest
+           docker build -t nodsjsapp .
+           docker tag nodejsapp $ECR_REGISTRY/nodejsapp:latest
 
-           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+           docker push $ECR_REGISTRY/nodejsapp:latest
