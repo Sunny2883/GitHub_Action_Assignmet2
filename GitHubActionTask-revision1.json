@@ -1,23 +1,17 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335487196:task-definition/GitHubActionTask:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335487196:task-definition/Git_Action_Task_New:1",
     "containerDefinitions": [
         {
-            "name": "GitHubAction_Container",
+            "name": "ecr_github_assignment-1",
             "image": "730335487196.dkr.ecr.us-east-1.amazonaws.com/ecr_github_assignment-1:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "containerport",
-                    "containerPort": 80,
-                    "hostPort": 0,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                },
-                {
-                    "name": "container_port",
+                    "name": "ecr_github_assignment-1-3000-tcp",
                     "containerPort": 3000,
                     "hostPort": 3000,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "appProtocol": "http"
                 }
             ],
             "essential": true,
@@ -30,7 +24,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/GitHubActionTask",
+                    "awslogs-group": "/ecs/Git_Action_Task_New",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -39,8 +33,9 @@
             "systemControls": []
         }
     ],
-    "family": "GitHubActionTask",
+    "family": "Git_Action_Task_New",
     "executionRoleArn": "arn:aws:iam::730335487196:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
@@ -64,6 +59,9 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
+            "name": "ecs.capability.task-eni"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
@@ -74,13 +72,13 @@
     "requiresCompatibilities": [
         "EC2"
     ],
-    "cpu": "1024",
-    "memory": "3072",
+    "cpu": "512",
+    "memory": "512",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-03-11T05:20:22.899Z",
+    "registeredAt": "2024-03-11T10:03:19.424Z",
     "registeredBy": "arn:aws:iam::730335487196:root",
     "tags": []
 }
