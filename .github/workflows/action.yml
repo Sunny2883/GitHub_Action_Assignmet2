@@ -14,7 +14,7 @@ env:
   ECR_REPOSITORY: ecr_github_assignment-1           
   ECS_SERVICE: GitHub_Action_Service                
   ECS_CLUSTER: Cluster_GitHubAction               
-  ECS_TASK_DEFINITION: GitHubActionTask    
+  ECS_TASK_DEFINITION: GitHubActionTask:1    
                                               
   CONTAINER_NAME: GitHubAction_Container           
                                               
