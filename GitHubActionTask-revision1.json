@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335487196:task-definition/Git_Action_Task_New:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335487196:task-definition/GitHubAction_Sunny:1",
     "containerDefinitions": [
         {
             "name": "ecr_github_assignment-1",
@@ -24,7 +24,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/Git_Action_Task_New",
+                    "awslogs-group": "/ecs/GitHubAction_Sunny",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -33,9 +33,8 @@
             "systemControls": []
         }
     ],
-    "family": "Git_Action_Task_New",
+    "family": "GitHubAction_Sunny",
     "executionRoleArn": "arn:aws:iam::730335487196:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
@@ -59,9 +58,6 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
-            "name": "ecs.capability.task-eni"
-        },
-        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
@@ -78,7 +74,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-03-11T10:03:19.424Z",
+    "registeredAt": "2024-03-11T10:38:33.014Z",
     "registeredBy": "arn:aws:iam::730335487196:root",
     "tags": []
 }

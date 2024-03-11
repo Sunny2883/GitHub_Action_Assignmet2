@@ -12,8 +12,8 @@ on:
 env:
   AWS_REGION: us-east-1                 
   ECR_REPOSITORY: ecr_github_assignment-1           
-  ECS_SERVICE: New_Service_Assignment               
-  ECS_CLUSTER: Cluster_For_Assignment2_git              
+  ECS_SERVICE: NewService_Sunny               
+  ECS_CLUSTER: New_Cluster_Sunny              
   ECS_TASK_DEFINITION: GitHubActionTask-revision1.json   
                                               
   CONTAINER_NAME: ecr_github_assignment-1           
