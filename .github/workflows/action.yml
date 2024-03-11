@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_REGION: ${{secrets.AWS_REGION}}                   
+  AWS_REGION: us-east-1                 
   ECR_REPOSITORY: ecr_github_assignment-1           
   ECS_SERVICE: GitHub_Action_Service                
   ECS_CLUSTER: Cluster_GitHubAction               
